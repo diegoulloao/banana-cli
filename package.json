@@ -2,10 +2,10 @@
   "name": "@diegoulloao/banana-cli",
   "version": "1.0.0",
   "description": "Banana-cli for create Banana-split projects",
-  "main": "src/cli.js",
+  "main": "src/index.js",
   "bin": {
-    "@diegoulloao/banana": "bin/banana",
-    "banana": "bin/banana"
+    "banana": "bin/banana",
+    "banana-cli": "bin/banana"
   },
   "scripts": {},
   "keywords": [
@@ -20,9 +20,6 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/diegoulloao/banana-cli.git"
-  },
-  "publishConfig": {
-    "registry":"https://npm.pkg.github.com/"
   },
   "author": "diegoulloao",
   "license": "ISC",
