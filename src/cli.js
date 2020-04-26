@@ -1,3 +1,13 @@
+/**
+ * 
+ *  Banana Client
+ *  v.1.0.1
+ *  @diegoulloao
+ * 
+ *  2020 · Apache Licence 2.0
+ * 
+ */
+
 import arg from 'arg'
 import shell from 'shelljs'
 import chalk from 'chalk'
@@ -27,11 +37,14 @@ async function createBananaProject( options ) {
                 if ( options.project ) {
                     const clone = await shell.exec( `git clone git@github.com:diegoulloao/bananasplit-express-template.git ${options.project}` )
 
-                    if ( options.git ) {
-                        await shell.exec( `cd ${options.project} && rm -rf .git && git init` )
-                    }
-
                     if ( clone.code === 0 ) {
+                        await shell.rm([ `${options.project}/README.md`, `${options.project}/LICENSE` ])
+                        await shell.rm( '-rf', `${options.project}/.git` )
+
+                        if ( options.git ) {
+                            await shell.exec( `cd ${options.project} && git init` )
+                        }
+
                         console.log( chalk.bgYellow.black(`${options.project} created!`) )
                     } else {
                         console.log( chalk.bgYellow.black('Project not created.') )

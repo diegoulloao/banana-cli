@@ -1,5 +1,5 @@
 # Banana-cli
-**Banana-cli** is a _terminal_ client for _create_ new **Banana-split** projects.
+**Banana-cli** is a terminal client for create new **Bananasplit** projects.
 
 ## Install
 
@@ -8,27 +8,27 @@
 ```
 
 ## Usage
-### Create a new project:
-**For create a new project replace the project-name and run:**
+### Create a new project
+**Replace by your project-name and run:**
 
 ```
     banana new project-name
 ```
 
-In addition **you can pass** the param `--git` or `-g` for automatically init the project within a **git repository.**
+In addition **you can pass** `--git` or `-g` params for automatically init a **git repository.**
 
 ```
     banana new project-name --git
 ```
 
-**or more simply:**
+**or:**
 
 ```
     banana new project-name -g
 ```
 
-## About Banana-split
-**Banana-split** is a **Node.js** superset **_Template_** that bring to you a background to _quickly develop your project_.
+## About Bananasplit
+**Bananasplit-js** is a **Express.js** superset **Template** that bring to you a background to _quickly develop your app_.
 
 **Read more**: https://github.com/diegoulloao/bananasplit-express-template
 

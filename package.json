@@ -1,7 +1,7 @@
 {
   "name": "@diegoulloao/banana-cli",
-  "version": "1.0.0",
-  "description": "Banana-cli for create Banana-split projects",
+  "version": "1.0.1",
+  "description": "Banana-cli for create Bananasplit projects",
   "main": "src/index.js",
   "bin": {
     "banana": "bin/banana",
@@ -22,7 +22,7 @@
     "url": "git://github.com/diegoulloao/banana-cli.git"
   },
   "author": "diegoulloao",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
     "arg": "^4.1.3",
     "chalk": "^3.0.0",
