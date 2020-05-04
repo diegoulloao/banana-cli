@@ -1,7 +1,7 @@
 /**
  * 
  *  Banana Client
- *  v.1.0.1
+ *  v.1.0.2
  *  @diegoulloao
  * 
  *  2020 · Apache Licence 2.0
@@ -35,7 +35,7 @@ async function createBananaProject( options ) {
         switch ( options.action ) {
             case 'new':
                 if ( options.project ) {
-                    const clone = await shell.exec( `git clone git@github.com:diegoulloao/bananasplit-express-template.git ${options.project}` )
+                    const clone = await shell.exec( `git clone https://github.com/diegoulloao/bananasplit-express-template.git ${options.project}` )
 
                     if ( clone.code === 0 ) {
                         await shell.rm([ `${options.project}/README.md`, `${options.project}/LICENSE` ])
