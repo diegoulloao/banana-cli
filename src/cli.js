@@ -1,7 +1,7 @@
 /**
  * 
  *  Banana Client
- *  v.1.0.2
+ *  v1.0.3
  *  @diegoulloao
  * 
  *  2020 · Apache Licence 2.0
@@ -12,11 +12,15 @@ import arg from 'arg'
 import shell from 'shelljs'
 import chalk from 'chalk'
 
+import { version } from './../package.json'
+
 function parseArgumentsIntoOptions( rawArgs ) {
     const args = arg(
         {
             '--git': Boolean,
-            '-g': '--git'
+            '-g': '--git',
+            '--version': Boolean,
+            '-v': '--version'
         },
         {
             argv: rawArgs.slice(2)
@@ -26,7 +30,8 @@ function parseArgumentsIntoOptions( rawArgs ) {
     return {
         git: args['--git'] || false,
         action: args._[0],
-        project: args._[1]
+        project: args._[1],
+        version: args['--version'] || false
     }
 }
 
@@ -40,6 +45,7 @@ async function createBananaProject( options ) {
                     if ( clone.code === 0 ) {
                         await shell.rm([ `${options.project}/README.md`, `${options.project}/LICENSE` ])
                         await shell.rm( '-rf', `${options.project}/.git` )
+                        await shell.rm( '-rf', `${options.project}/.github` )
 
                         if ( options.git ) {
                             await shell.exec( `cd ${options.project} && git init` )
@@ -65,5 +71,10 @@ async function createBananaProject( options ) {
 
 export function cli( args ) {
     let options = parseArgumentsIntoOptions( args )
-    createBananaProject( options )
+    
+    if ( options.version ) {
+        console.log( chalk.bgYellow.black(version) )
+    } else {
+        createBananaProject( options )
+    }
 }
